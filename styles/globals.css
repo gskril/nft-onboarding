@@ -1,7 +1,17 @@
+:root {
+  --color-light: #FFFFFF;
+  --color-dark: #101112;
+  --color-highlight: #181C22;
+  --color-gray-100: #BCC4CC;
+  --color-gray-200: #676E75;
+  --color-gradient-primary: linear-gradient(330.4deg, #44BCF0 4.54%, #7298F8 59.2%, #A099FF 148.85%);
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
+  line-height: 1.7;
+  color: var(--color-gray-200);
+  background: var(--color-dark);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -11,6 +21,52 @@ a {
   text-decoration: none;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-light);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2.625rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+  /* line-height: inherit; */
+}
+
+p,
+span {
+  font-size: 1.125rem;
+}
+
+p:not(:last-of-type) {
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: var(--color-gray-100);
+  text-decoration: underline;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 70rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }

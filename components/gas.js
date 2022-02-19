@@ -1,9 +1,9 @@
-import useSWR from 'swr'
+import swr from 'swr'
 
 function getGasPrice() {
 	const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
-	const { data, error } = useSWR('/api/gas', fetcher, { refreshInterval: 30 * 1000 })
+	const { data, error } = swr('/api/gas', fetcher, { refreshInterval: 30 * 1000 })
 
 	if (error) return 'Error'
 	if (!data) return 'Loading...'
