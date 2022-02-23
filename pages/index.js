@@ -31,105 +31,191 @@ export default function Home() {
 					</Container>
 				</div>
 
-				<Section
-					id="intro"
-					title="What is an NFT?"
-					media={
-						<>
+				<Section id="intro">
+					<div className="intro grid">
+						<div className="intro__text">
+							<h2>What is an NFT?</h2>
+							<p>
+								Non-fungible token&apos;s are digital assets
+								that are proven to be unique. The source of this
+								truth is a network of computers around the world
+								that approve each other&apos;s actions called
+								the blockchain.
+							</p>
+							<p>
+								NFTs can have different usecases, many of which
+								are in the early phases of development and
+								adoption. Today, the most common use case of
+								NFTs is in digital art.
+							</p>
+						</div>
+						<div className="intro__media">
 							<Image
 								src="/verified.png"
 								width={531}
 								height={192}
 								alt="Verified JPEG by Jack Butcher"
 							/>
-							<span>
+							<p>
 								Credit:{' '}
-								<a href="https://twitter.com/visualizevalue/status/1476175140174057472">
+								<a
+									href="https://twitter.com/visualizevalue/status/1476175140174057472"
+									target="_blank"
+									rel="noreferrer"
+								>
 									Jack Butcher
 								</a>
-							</span>
-						</>
-					}
-				>
-					<p>
-						Non-fungible token&apos;s are digital assets that are
-						proven to be unique. The source of this truth is a
-						network of computers around the world that approve each
-						other&apos;s actions called the blockchain.
-					</p>
-					<p>
-						NFTs can have different usecases, many of which are in
-						the early phases of development and adoption. Today, the
-						most common use case of NFTs is in digital art.
-					</p>
+							</p>
+						</div>
+					</div>
 				</Section>
 
 				<Section
 					id={'wallet'}
-					title="Create a wallet"
-					textAlignment="right"
-					textWidth="53%"
 					alternateBg={true}
-					mediaPosition="wallet"
-					media={
-						<Image
-							src="/rainbow.png"
-							width={401}
-							height={492}
-							alt="Verified JPEG by Jack Butcher"
-						/>
-					}
+					paddingBottom={false}
 				>
-					<p>
-						An Ethereum wallet is your access point to everything in
-						Web3. You will use your wallet to store tokens and NFTs,
-						connect to websites, transfer assets and more.
-					</p>
-					<p>
-						Ethereum wallets are{' '}
-						<a
-							href="https://gregskril.com/blog/"
-							target="_blank"
-							rel="noreferrer"
-						>
-							decentralized and portable.
-						</a>
-						They are free to create and don&apos;t require an email,
-						username or password.
-					</p>
-					<p>
-						The easiest way to create an Ethereum wallet and add
-						some test funds to it is with the{' '}
-						<a href="https://rainbow.me/" target="_blank">
-							Rainbow app
-						</a>
-						, available on iOS and Android.
-					</p>
+					<div className="wallet grid">
+						<div className="wallet__content">
+							<h2>Create a wallet</h2>
+							<p>
+								An Ethereum wallet is your access point to everything in
+								Web3. You will use your wallet to store tokens and NFTs,
+								connect to websites, transfer assets and more.
+							</p>
+							<p>
+								Ethereum wallets are{' '}
+								<a
+									href="https://gregskril.com/blog/"
+									target="_blank"
+									rel="noreferrer"
+								>
+									decentralized and portable.
+								</a>
+								They are free to create and don&apos;t require an email,
+								username or password.
+							</p>
+							<p>
+								The easiest way to create an Ethereum wallet and add
+								some test funds to it is with the{' '}
+								<a href="https://rainbow.me/" target="_blank">
+									Rainbow app
+								</a>
+								, available on iOS and Android.
+							</p>
+						</div>
+						<div className="wallet__media">
+							<Image
+								src="/rainbow.png"
+								width={401}
+								height={492}
+								alt="Verified JPEG by Jack Butcher"
+							/>
+						</div>
+					</div>
 				</Section>
 
-				<Section
-					id="connect"
-					title="Connect your wallet"
-					mediaPosition="center"
-					textWidth="50%"
-					media={
-						<>
-							<Button eth={true}>
-								Connect
-							</Button>
-						</>
-					}
-				>
-					<p>
-						Click “Connect” and select “Wallet Connect” then scan
-						the QR code from within Rainbow.
-					</p>
-					<p>
-						I get it, connecting your wallet to a new website feels
-						intimidating, but there&apos;s no need to worry. This
-						initial connection won&apos;t give website&apos;s access
-						to do anything malicious with your assets.
-					</p>
+				<Section id="connect">
+					<div className="connect grid">
+						<div className="connect__content">
+							<h2>Connect your wallet</h2>
+							<p>
+								Click “Connect” and select “Wallet Connect” then scan
+								the QR code from within Rainbow.
+							</p>
+							<p>
+								I get it, connecting your wallet to a new website feels
+								intimidating, but there&apos;s no need to worry. This
+								initial connection won&apos;t give website&apos;s access
+								to do anything malicious with your assets.
+							</p>
+						</div>
+						<div className="connect__media">
+							<Button eth={true}>Connect</Button>
+						</div>
+					</div>
+				</Section>
+
+				<Section id="nft" alternateBg={true}>
+					<div className="gas">
+						<h2>Things to know before buying your first NFT</h2>
+						<div className="grid gas__description">
+							<div>
+								<p>
+									When an NFT is created it&apos;s called “minting”.
+									This is basically writing the NFT data to the
+									blockchain where it will live forever. In the
+									case of generative NFTs, the first sale is also
+									when the art is created/written to the
+									blockchain, so technically the original buyer is
+									minting the NFT.
+								</p>
+								<p>
+									Most NFTs have a unique ID that is publicly
+									owned by a wallet. This is what makes it
+									non-fungible.
+								</p>
+								<p>
+									Minting an NFT, or really any transaction on the
+									Ethereum network, comes with a transaction fee
+									called a gas fee. Unfortunately these fees are
+									can be quite high ($100+ at times), but it&apos;s
+									important to understand how they work.
+								</p>
+							</div>
+							<div>
+								<p>
+									The transaction fee is based on a few factors:
+									type of transaction and the price of gas at that
+									moment being the main ones.
+								</p>
+								<p>
+									Different types of transactions require
+									different amounts of work from the Ethereum
+									network. For example, sending Ether from one
+									wallet to another is not very demanding, while
+									creating a new NFT collection is very demanding
+									and therefore requires more gas.
+								</p>
+								<p>
+									The price of gas at any time is based on network
+									activity, and is represented in Gwei, a small
+									fraction of Ether.
+								</p>
+							</div>
+						</div>
+						<div className="gas__live">
+							<Gas />
+						</div>
+						<div className="gas__ending">
+							<p>
+								Since gas, which you see the real-time price of
+								above, is based on network activity, you can
+								save a significant amount of money by simply
+								waiting for the activity to slow down.
+							</p>
+							<p>
+								A great resource to reference is{' '}
+								<a
+									href="https://raribleanalytics.com/"
+									target="_blank"
+									rel="noreferrer"
+								>
+									RaribleAnalytics
+								</a>
+								. This will give you an easy scale of whether
+								it&apos;s currently a good time to make a
+								transaction, or if it&apos;s better to wait.
+							</p>
+						</div>
+					</div>
+				</Section>
+
+				<Section>
+					<div className="mint">
+						<h2>Ready to mint?</h2>
+						<Button>Mint NFT - 0.001 ETH</Button>
+					</div>
 				</Section>
 
 				<style jsx>{`
@@ -137,6 +223,78 @@ export default function Home() {
 						margin: 0 auto 3rem;
 						text-align: center;
 						max-width: 26rem;
+					}
+
+					.grid {
+						display: grid;
+						gap: 2rem;
+					}
+
+					.wallet__media {
+						display: flex;
+						align-items: flex-end;
+						justify-content: center;
+					}
+
+					.connect {
+						gap: 2.5rem;
+					}
+
+					.connect__media {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+
+					.gas__live {
+						margin: 2.5rem auto 3rem;
+					}
+
+					.mint {
+						width: 100%;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						padding-bottom: 1rem;
+					}
+
+					@media screen and (min-width: 60em) {
+						.grid {
+							grid-template-columns: 1fr 1fr;
+							gap: 5rem;
+						}
+
+						.grid.connect {
+							grid-template-columns: 3fr 2fr;
+						}
+
+						.intro__media {
+							margin-top: 4rem;
+						}
+
+						.wallet__content {
+							order: 2;
+						}
+
+						.gas h2 {
+							text-align: center;
+							margin-left: auto;
+							margin-right: auto;
+						}
+
+						.gas__description {
+							gap: 4rem;
+						}
+
+						.gas__ending {
+							max-width: 28rem;
+							margin: 0 auto;
+						}
+
+						.gas__live {
+							display: flex;
+							justify-content: center;
+						}
 					}
 				`}</style>
 			</Layout>

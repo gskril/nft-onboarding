@@ -17,11 +17,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 *,
 *::before,
 *::after {
@@ -38,12 +33,23 @@ h3 {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 h2 {
-  font-size: 2.625rem;
+  font-size: 2.125rem;
   margin-bottom: 1.5rem;
+  max-width: 35rem;
+}
+
+@media screen and (min-width: 60em) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2.625rem;
+  }
 }
 
 h3 {
@@ -65,3 +71,8 @@ a {
   text-decoration: underline;
 }
 
+a:hover,
+a:focus-visible {
+  outline: none;
+  opacity: 0.8;
+}

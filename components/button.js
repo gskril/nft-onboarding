@@ -4,12 +4,12 @@ export default function Button({eth, children}) {
       <button>
         {eth ? (
           <svg width="16" height="25" viewBox="0 0 16 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.04346 0V9.1743L15.7222 12.6392L8.04346 0Z" fill="white" fill-opacity="0.602"/>
+            <path d="M8.04346 0V9.1743L15.7222 12.6392L8.04346 0Z" fill="white" fillOpacity="0.602"/>
             <path d="M8.04339 0L0.363647 12.6392L8.04339 9.1743V0Z" fill="white"/>
-            <path d="M8.04346 18.5844V24.8182L15.7273 14.0831L8.04346 18.5844Z" fill="white" fill-opacity="0.602"/>
+            <path d="M8.04346 18.5844V24.8182L15.7273 14.0831L8.04346 18.5844Z" fill="white" fillOpacity="0.602"/>
             <path d="M8.04339 24.8182V18.5834L0.363647 14.0831L8.04339 24.8182Z" fill="white"/>
-            <path d="M8.04346 17.1416L15.7222 12.6392L8.04346 9.17639V17.1416Z" fill="white" fill-opacity="0.2"/>
-            <path d="M0.363647 12.6392L8.04339 17.1416V9.17639L0.363647 12.6392Z" fill="white" fill-opacity="0.602"/>
+            <path d="M8.04346 17.1416L15.7222 12.6392L8.04346 9.17639V17.1416Z" fill="white" fillOpacity="0.2"/>
+            <path d="M0.363647 12.6392L8.04339 17.1416V9.17639L0.363647 12.6392Z" fill="white" fillOpacity="0.602"/>
           </svg>
         ) : ''}
         {children}

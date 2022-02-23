@@ -26,7 +26,7 @@ export default function Step({ num, title, section }) {
         .step::after {
           content: '${num}';
           color: var(--color-dark);
-          opacity: 0.6;
+          opacity: 0.3;
           font-weight: 600;
           position: absolute;
           font-size: 11rem;
@@ -43,6 +43,12 @@ export default function Step({ num, title, section }) {
 
         .step__name {
           width: 8rem;
+        }
+
+        @media screen and (min-width: 60em) {
+          .step::after {
+            opacity: 0.6;
+          }
         }
       `}</style>
     </>

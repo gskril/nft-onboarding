@@ -27,8 +27,14 @@ export default function Plan() {
       <style jsx>{`
         .plan {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 2rem;
+        }
+
+        @media screen and (min-width: 60em) {
+          .plan {
+            grid-template-columns: repeat(4, 1fr);
+          }
         }
       `}
       </style>
