@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Plan from '../components/plan'
 import Layout from '../components/layout'
 import Gas from '../components/gas'
+import Button from '../components/button'
 import Section from '../components/section'
 import Container from '../components/container'
 
@@ -30,7 +31,7 @@ export default function Home() {
 					</Container>
 				</div>
 
-				<Section 
+				<Section
 					id="intro"
 					title="What is an NFT?"
 					media={
@@ -103,6 +104,31 @@ export default function Home() {
 							Rainbow app
 						</a>
 						, available on iOS and Android.
+					</p>
+				</Section>
+
+				<Section
+					id="connect"
+					title="Connect your wallet"
+					mediaPosition="center"
+					textWidth="50%"
+					media={
+						<>
+							<Button eth={true}>
+								Connect
+							</Button>
+						</>
+					}
+				>
+					<p>
+						Click “Connect” and select “Wallet Connect” then scan
+						the QR code from within Rainbow.
+					</p>
+					<p>
+						I get it, connecting your wallet to a new website feels
+						intimidating, but there&apos;s no need to worry. This
+						initial connection won&apos;t give website&apos;s access
+						to do anything malicious with your assets.
 					</p>
 				</Section>
 

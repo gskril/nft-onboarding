@@ -46,6 +46,11 @@ export default function Section({
         .section__media {
           display: flex;
           flex-direction: column;
+          ${mediaPosition === 'center' ? `
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-1rem);
+          ` : ''}
           gap: 0.5rem;
           font-size: .875rem;
           margin-top: 4rem;
