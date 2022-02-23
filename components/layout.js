@@ -1,11 +1,10 @@
 import Head from 'next/head'
+import Hero from '../components/hero'
 
 export default function Layout({children}) {
   return (
     <>
-      <Head>
-        <title>Test page</title>
-      </Head>
+      <Hero />
       <main>{children}</main>
     </>
   )

@@ -1,106 +1,119 @@
 import Image from 'next/image'
+import Head from 'next/head'
 
 import Plan from '../components/plan'
 import Layout from '../components/layout'
-import Credit from '../components/credit'
 import Gas from '../components/gas'
 import Section from '../components/section'
+import Container from '../components/container'
 
 export default function Home() {
-  return (
-		<Layout>
-			<Credit />
-			<div className="hero">
-				<div className="hero__gradient"></div>
-				<div className="container">
-					<h1 className="hero__title">Welcome to Web3</h1>
-					<span className="hero__subtitle">
-						Learn how to buy an NFT by doing it step-by-step.
-					</span>
-				</div>
-			</div>
+	return (
+		<>
+			<Head>
+				<title>Home</title>
+			</Head>
 
-			<div className="container plan">
-				<div className="plan__text">
-					<h2>Here&apos;s the plan</h2>
-					<span className="section-subtitle">
-						I understand this can all feel overwhelming, so we&apos;re
-						going to take it step by step.
-					</span>
+			<Layout>
+				<div className="plan">
+					<Container>
+						<div className="plan__text">
+							<h2>Here&apos;s the plan</h2>
+							<span className="section-subtitle">
+								I understand this can all feel overwhelming, so
+								we&apos;re going to take it step by step.
+							</span>
+						</div>
+						<div className="steps">
+							<Plan />
+						</div>
+					</Container>
 				</div>
-				<div className="steps">
-					<Plan />
-				</div>
-			</div>
 
-			<Section
-				title="What is an NFT?"
-				description={
-					<>
-						<p>
-							Non-fungible token&apos;s are digital assets that are
-							proven to be unique. The source of this truth is a
-							network of computers around the world that approve
-							each other&apos;s actions called the blockchain.
-						</p>
-						<p>
-							NFTs can have different usecases, many of which are
-							in the early phases of development and adoption.
-							Today, the most common use case of NFTs is in
-							digital art.
-						</p>
-					</>
-				}
-				media={
-					<>
+				<Section 
+					id="intro"
+					title="What is an NFT?"
+					media={
+						<>
+							<Image
+								src="/verified.png"
+								width={531}
+								height={192}
+								alt="Verified JPEG by Jack Butcher"
+							/>
+							<span>
+								Credit:{' '}
+								<a href="https://twitter.com/visualizevalue/status/1476175140174057472">
+									Jack Butcher
+								</a>
+							</span>
+						</>
+					}
+				>
+					<p>
+						Non-fungible token&apos;s are digital assets that are
+						proven to be unique. The source of this truth is a
+						network of computers around the world that approve each
+						other&apos;s actions called the blockchain.
+					</p>
+					<p>
+						NFTs can have different usecases, many of which are in
+						the early phases of development and adoption. Today, the
+						most common use case of NFTs is in digital art.
+					</p>
+				</Section>
+
+				<Section
+					id={'wallet'}
+					title="Create a wallet"
+					textAlignment="right"
+					textWidth="53%"
+					alternateBg={true}
+					mediaPosition="wallet"
+					media={
 						<Image
-							src="/verified.png"
-              width={531}
-              height={192}
+							src="/rainbow.png"
+							width={401}
+							height={492}
 							alt="Verified JPEG by Jack Butcher"
 						/>
-						<span>
-							Credit:{' '}
-							<a href="https://www.figma.com/exit?url=https%3A%2F%2Ftwitter.com%2Fvisualizevalue%2Fstatus%2F1476175140174057472">
-								Jack Butcher
-							</a>
-						</span>
-					</>
-				}
-			/>
+					}
+				>
+					<p>
+						An Ethereum wallet is your access point to everything in
+						Web3. You will use your wallet to store tokens and NFTs,
+						connect to websites, transfer assets and more.
+					</p>
+					<p>
+						Ethereum wallets are{' '}
+						<a
+							href="https://gregskril.com/blog/"
+							target="_blank"
+							rel="noreferrer"
+						>
+							decentralized and portable.
+						</a>
+						They are free to create and don&apos;t require an email,
+						username or password.
+					</p>
+					<p>
+						The easiest way to create an Ethereum wallet and add
+						some test funds to it is with the{' '}
+						<a href="https://rainbow.me/" target="_blank">
+							Rainbow app
+						</a>
+						, available on iOS and Android.
+					</p>
+				</Section>
 
-			<style jsx>{`
-				.hero {
-					padding-top: 7.5rem;
-					padding-bottom: 7.5rem;
-					text-align: center;
-				}
-				.hero__gradient {
-					width: 100%;
-					min-height: 37.5rem;
-					background-image: url('./background-gradient.png');
-					background-repeat: no-repeat;
-					background-size: contain;
-					background-position: top center;
-					position: absolute;
-					top: 0;
-					left: 0;
-					z-index: 1;
-				}
-				.hero__title {
-					margin-bottom: 2rem;
-				}
-				.hero__subtitle {
-					font-size: 1.25rem;
-					color: var(--color-gray-100);
-				}
-
-				.plan__text {
-					margin: 0 auto 3rem;
-					text-align: center;
-					max-width: 26rem;
-				}
-			`}</style>
-		</Layout>
-  )
+				<style jsx>{`
+					.plan__text {
+						margin: 0 auto 3rem;
+						text-align: center;
+						max-width: 26rem;
+					}
+				`}</style>
+			</Layout>
+		</>
+	)
 }

@@ -1,26 +1,38 @@
+import Container from './container'
+
 export default function Section({
   textAlignment = 'left',
+  textWidth = '40%',
+  alternateBg = false,
   title,
-  description,
-  media
+  id,
+  children,
+  media,
+  mediaPosition
 }) {
   return (
-    <div className="section">
-      <div className="container">
+    <div className="section" id={id} className={alternateBg ? 'alternate-bg' : ''}>
+      <Container>
         <div className="section__content">
           <div className="section__text">
             <h2 className="section-title">{title}</h2>
-            <p className="section-description">{description}</p>
+            <p className="section-description">{children}</p>
           </div>
-          <div className="section__media">
+          <div className={mediaPosition === 'wallet' ? 'section__media section__media--absolute' : 'section__media'}>
             {media}
           </div>
         </div>
-      </div>
+      </Container>
 
       <style jsx>{`
+        .alternate-bg {
+          background-color: black;
+        }
+
         .section__content {
           display: flex;
+          position: relative;
+          overflow: hidden;
           padding-top: 6.25rem;
           padding-bottom: 6.25rem;
           flex-direction: ${textAlignment === 'left' ? 'row' : 'row-reverse' };
@@ -28,7 +40,7 @@ export default function Section({
         }
 
         .section__text {
-          width: 40%;
+          width: ${textWidth};
         }
 
         .section__media {
@@ -38,7 +50,18 @@ export default function Section({
           font-size: .875rem;
           margin-top: 4rem;
         }
-      `}</style>
+
+        .section__media:not(.section__media--absolute) {
+          width: calc(100% - ${textWidth});
+        }
+
+        .section__media--absolute {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      `}
+      </style>
     </div>
   )
 }
