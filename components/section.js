@@ -7,11 +7,11 @@ export default function Section({
   paddingBottom = true,
 }) {
   return (
-    <div className="section" id={id} className={alternateBg ? 'alternate-bg' : ''}>
+    <div className={alternateBg ? 'alternate-bg' : ''} id={id} >
       <Container>
-        {<div className="section__content">
+        <div className="section__content">
           {children}
-        </div>}
+        </div>
       </Container>
 
       <style jsx>{`

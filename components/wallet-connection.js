@@ -9,6 +9,7 @@ export default function Wallet() {
       <div className="wallet__avatar">
         <Image 
           src="https://metadata.ens.domains/mainnet/avatar/nick.eth"
+          alt="ENS Avatar"
           width={avatarWidth}
           height={avatarWidth}
         />
