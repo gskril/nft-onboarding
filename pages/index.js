@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import Head from 'next/head'
+import Script from 'next/script'
 
 import Plan from '../components/plan'
+import Wallet from '../components/wallet-connection'
 import Layout from '../components/layout'
 import Gas from '../components/gas'
 import Button from '../components/button'
@@ -14,6 +16,9 @@ export default function Home() {
 			<Head>
 				<title>Home</title>
 			</Head>
+
+			<div className="connection d-none">
+			</div>
 
 			<Layout>
 				<div className="plan">
@@ -218,6 +223,7 @@ export default function Home() {
 				<Section>
 					<div className="mint">
 						<h2>Ready to mint?</h2>
+						{/* TODO: show output from gas.message api */}
 						<Button>Mint NFT - 0.001 ETH</Button>
 					</div>
 				</Section>
@@ -246,6 +252,8 @@ export default function Home() {
 
 					.connect__media {
 						display: flex;
+						flex-direction: column;
+						gap: 0.5rem;
 						align-items: center;
 						justify-content: center;
 					}
@@ -301,6 +309,9 @@ export default function Home() {
 						}
 					}
 				`}</style>
+
+				<Script src="/js/ethers.js" />
+				<Script src="/js/app.js" />
 			</Layout>
 		</>
 	)

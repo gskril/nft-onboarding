@@ -8,10 +8,15 @@ function getGasPrice() {
 	if (error) return 'Error'
 	if (!data) return 'Loading...'
 
-	return data.low
+	return {
+		gas: data.low,
+		message: data.message
+	}
 }
 
 export default function Gas() {
+	const gas = getGasPrice()
+
 	return (
 		<div className="price">
 			<div className="price__gas">
@@ -34,7 +39,7 @@ export default function Gas() {
 					</defs>
 				</svg>
 				<span className="price__gas-price">
-					{getGasPrice()}
+					{gas.gas}
 				</span>
 				<span>
 					{' '}Gwei

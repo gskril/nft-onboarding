@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['metadata.ens.domains'],
+    domains: ['metadata.ens.domains', 'ethleaderboard.xyz'],
   },
 }

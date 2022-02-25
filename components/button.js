@@ -37,6 +37,10 @@ export default function Button({eth, children}) {
           cursor: pointer;
           transform: scale(1.05);
         }
+
+        button:disabled {
+          opacity: 0.6;
+        }
       `}</style>
     </>
   )
