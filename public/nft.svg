@@ -1,13 +1,15 @@
 <svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <!-- Background -->
-  <rect width="1200" height="1200" fill="url(#background_gradient_blue)"/>
+  <rect width="1200" height="1200" fill="url(#background_gradient_light)"/>
 
   <!-- White background -->
-  <rect x="120" y="393" width="960" height="415" rx="24" fill="white"/>
+  <g filter="url(#tweet_shadow)">
+    <rect x="120" y="393" width="960" height="415" rx="24" fill="white"/>
+  </g>
 
   <!-- Gradient pfp -->
-  <circle cx="221" cy="497" r="46" fill="url(#pfp_gradient_blue)"/>
+  <circle cx="221" cy="497" r="46" fill="url(#pfp_gradient_light)"/>
 
   <!-- Name -->
   <text x="287" y="486" font-size="47px" fill="black">
@@ -25,18 +27,8 @@
   </text>
 
   <!-- Time -->
-  <text x="175" y="764" font-size="26px" fill="#5F5F5F">
-    1:31 AM
-  </text>
-
-  <!-- Separator -->
-  <text x="283" y="761.5" font-size="22px" fill="#5F5F5F">
-    •
-  </text>
-
-  <!-- Date -->
-  <text x="310" y="764" font-size="26px" fill="#5F5F5F">
-    Jan 13, 2022
+  <text x="175" y="764" font-size="26px" fill="#7a7a7a">
+    <tspan xml:space="preserve">1:31 AM  •  Jan 13, 2022</tspan>
   </text>
 
   <defs>
@@ -51,6 +43,17 @@
       <stop offset="1" stop-color="#7CB8FF"/>
     </linearGradient>
 
+    <!-- Purple gradients -->
+    <linearGradient id="background_gradient_purple" x1="0" y1="0" x2="1200" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8854bb"/>
+      <stop offset="1" stop-color="#492073"/>
+    </linearGradient>
+    
+    <linearGradient id="pfp_gradient_purple" x1="175" y1="451" x2="267" y2="543" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8854bb"/>
+      <stop offset="1" stop-color="#492073"/>
+    </linearGradient>
+
     <!-- Red gradients -->
     <linearGradient id="background_gradient_red" x1="0" y1="0" x2="1200" y2="1200" gradientUnits="userSpaceOnUse">
       <stop stop-color="#E46060"/>
@@ -61,6 +64,40 @@
       <stop stop-color="#E46060"/>
       <stop offset="1" stop-color="#FFB1B1"/>
     </linearGradient>
+
+    <!-- Light gradients -->
+    <linearGradient id="background_gradient_light" x1="0" y1="0" x2="1200" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFCFC"/>
+      <stop offset="1" stop-color="#C8E5FF"/>
+    </linearGradient>
+
+    <linearGradient id="pfp_gradient_light" x1="175" y1="451" x2="267" y2="543" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFCFC"/>
+      <stop offset="1" stop-color="#C8E5FF"/>
+    </linearGradient>
+
+    <!-- Dark gradients -->
+    <linearGradient id="background_gradient_dark" x1="0" y1="0" x2="1200" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#000000"/>
+      <stop offset="1" stop-color="#333333"/>
+    </linearGradient>
+
+    <linearGradient id="pfp_gradient_dark" x1="175" y1="451" x2="267" y2="543" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#000000"/>
+      <stop offset="1" stop-color="#606060"/>
+    </linearGradient>
+
+    <!-- Tweet shadow -->
+    <filter id="tweet_shadow" x="116" y="393" width="968" height="423" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="4"/>
+      <feGaussianBlur stdDeviation="2"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_53_11"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_53_11" result="shape"/>
+    </filter>
 
     <!-- Import font (taken from ENS SVG) -->
     <style type="text/css">
@@ -79,7 +116,7 @@
       </style>
       <style>
         text {
-          font-family:Plus Jakarta Sans;
+          font-family: Plus Jakarta Sans, sans-serif;
           font-weight: bold;
           font-style: normal;
           line-height: 34px;
