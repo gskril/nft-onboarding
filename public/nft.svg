@@ -1,7 +1,7 @@
-<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1200" height="1200" xmlns="http://www.w3.org/2000/svg">
 
   <!-- Background -->
-  <rect width="1200" height="1200" fill="url(#background_gradient_light)"/>
+  <rect width="1200" height="1200" fill="url(#background_gradient_blue)"/>
 
   <!-- White background -->
   <g filter="url(#tweet_shadow)">
@@ -9,7 +9,7 @@
   </g>
 
   <!-- Gradient pfp -->
-  <circle cx="221" cy="497" r="46" fill="url(#pfp_gradient_light)"/>
+  <circle cx="221" cy="497" r="46" fill="url(#pfp_gradient_blue)"/>
 
   <!-- Name -->
   <text x="287" y="486" font-size="47px" fill="black">
