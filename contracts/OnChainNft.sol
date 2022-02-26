@@ -22,11 +22,11 @@ contract OnChainNft is ERC721Enumerable, Ownable {
 
   constructor() ERC721("On Chain NFT", "OCN") {}
 
-  // public
   function mint(string memory _minter) public payable {
     uint256 supply = totalSupply();
     require(!paused);
     require(bytes(_minter).length > 2);
+    require(balanceOf(msg.sender) == 0, "Each address may only own one square");
 
     metadata memory newMetadata = metadata(
       string(abi.encodePacked('OCN #', uint256(supply+1).toString())),
@@ -46,10 +46,10 @@ contract OnChainNft is ERC721Enumerable, Ownable {
     metadata memory currentMetadata = meta[tokenId];
 
     return Base64.encode(bytes(abi.encodePacked(
-        '<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">',
-          '<rect width="500" height="500" fill="#FF0000"/>',
-          '<text dominant-baseline="middle" text-anchor="middle" x="50%" y="50%" font-size="47px" fill="000000">',currentMetadata.minter,'</text>',
-        '</svg>'
+      '<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">',
+        '<rect width="500" height="500" fill="#FF0000"/>',
+        '<text dominant-baseline="middle" text-anchor="middle" x="50%" y="50%" font-size="47px" fill="000000">',currentMetadata.minter,'</text>',
+      '</svg>'
     )));
   }
 
@@ -68,19 +68,19 @@ contract OnChainNft is ERC721Enumerable, Ownable {
     metadata memory currentMetadata = meta[tokenId];
 
     return string(abi.encodePacked(
-        'data:application/json;base64,', Base64.encode(bytes(abi.encodePacked(
-            '{"name":"',
-            currentMetadata.name,
-            '", "description":"',
-            currentMetadata.description,
-            '", "image": "',
-            'data:image/svg+xml;base64,',
-            buildImage(tokenId),
-            '"}'
-        )))));
+      'data:application/json;base64,', Base64.encode(bytes(abi.encodePacked(
+        '{"name":"',
+        currentMetadata.name,
+        '", "description":"',
+        currentMetadata.description,
+        '", "image": "',
+        'data:image/svg+xml;base64,',
+        buildImage(tokenId),
+        '"}'
+      )))
+    ));
   }
 
-  //only owner
   function setCost(uint256 _newCost) public onlyOwner {
     cost = _newCost;
   }
