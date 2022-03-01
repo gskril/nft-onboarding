@@ -64,7 +64,7 @@ async function mintNft() {
   // Read price of NFT from contract
   let pricePerNft
   try {
-    pricePerNft = await contractWithSigner.PRICE()
+    pricePerNft = await contractWithSigner.cost()
   } catch (error) {
     console.error(error)
     return alert('Error reading price from contract')
