@@ -12,6 +12,7 @@
     "hardhat": "^2.8.4"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.5.0"
+    "@openzeppelin/contracts": "^4.5.0",
+    "chai-string": "^1.5.0"
   }
 }
