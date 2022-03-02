@@ -33,6 +33,7 @@ contract OnChainNft is ERC721Enumerable, Ownable {
     require(!paused, "Minting is currently paused");
     require(bytes(_minterName).length > 2, "Minter name must be at least 3 characters");
     require(balanceOf(msg.sender) == 0, "Each address may only mint one");
+    require(msg.value >= cost, "Not enough ether to mint token");
 
     // TODO: if _color is not in colorOptions, set it to "light"
     if (bytes(_color).length == 0) {

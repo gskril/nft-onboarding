@@ -1,9 +1,12 @@
 :root {
   --color-light: #FFFFFF;
   --color-dark: #101112;
+  --color-black: #000000;
   --color-highlight: #181C22;
   --color-gray-100: #BCC4CC;
   --color-gray-200: #676E75;
+  --color-gray-300: #4e545a;
+  --color-gray-400: #2f3336;
   --color-gradient-primary: linear-gradient(330.4deg, #44BCF0 4.54%, #7298F8 59.2%, #A099FF 148.85%);
 }
 
@@ -23,6 +26,12 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+img,
+form,
+button {
+  max-width: 100%;
 }
 
 h1,
@@ -58,7 +67,8 @@ h3 {
 }
 
 p,
-span {
+span,
+input {
   font-size: 1.125rem;
 }
 
@@ -91,8 +101,8 @@ a:focus-visible {
   display: flex;
   align-items: center;
   gap: 1rem;
-  top: 1.75rem;
-  left: 3rem;
+  top: 1rem;
+  left: 1rem;
   box-shadow: 0px 0px 26px -5px rgba(75, 78, 86, 0.25);
   transition: box-shadow 0.15s ease-in-out;
 }
@@ -107,4 +117,11 @@ a:focus-visible {
   overflow: hidden;
   width: 38px;
   height: 38px;
+}
+
+@media screen and (min-width: 60em) {
+  .connection {
+    top: 1.75rem;
+    left: 3rem;
+  }
 }

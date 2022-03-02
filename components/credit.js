@@ -9,8 +9,8 @@ export default function Credit() {
         .credit {
           display: block;
           position: absolute;
-          top: 2rem;
-          right: 3rem;
+          top: 1rem;
+          right: 1rem;
           color: var(--color-light);
           background: var(--color-dark);
           padding: 0.325rem 2rem;
@@ -25,6 +25,13 @@ export default function Credit() {
         .credit:focus-visible {
           box-shadow: 1px 1px 26px -5px rgba(97, 99, 107, 0.55);
           outline: none;
+        }
+
+        @media screen and (min-width: 60em) {
+          .credit {
+            top: 2rem;
+            right: 3rem;
+          }
         }
       `}</style>
     </>

@@ -1,7 +1,7 @@
-export default function Button({eth, children}) {
+export default function Button({type, eth, extraClass, children}) {
   return (
     <>
-      <button>
+      <button type={type} className={extraClass}>
         {eth ? (
           <svg width="16" height="25" viewBox="0 0 16 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8.04346 0V9.1743L15.7222 12.6392L8.04346 0Z" fill="white" fillOpacity="0.602"/>
@@ -19,7 +19,7 @@ export default function Button({eth, children}) {
         button {
           background: linear-gradient(330.4deg, #44BCF0 4.54%, #7298F8 59.2%, #A099FF 148.85%);
           box-shadow: 0px 2px 12px 0px #0000000A;
-          padding: 1rem 3rem;
+          padding: 1rem 2rem;
           display: flex;
           gap: 0.5rem;
           font-size: 1.315rem;
@@ -29,6 +29,16 @@ export default function Button({eth, children}) {
           border: none;
           border-radius: .75rem;
           transition: transform .15s ease-in-out;
+        }
+
+        .center {
+          margin-left: auto; margin-right: auto;
+        }
+
+        @media screen and (min-width: 60em) {
+          button {
+            padding: 1rem 3rem;
+          }
         }
 
         button:hover,

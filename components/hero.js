@@ -17,8 +17,8 @@ export default function Hero() {
 
       <style jsx>{`
         .hero {
-          padding-top: 7.5rem;
-          padding-bottom: 7.5rem;
+          padding-top: 6rem;
+          padding-bottom: 5rem;
           text-align: center;
         }
         .hero__gradient {
@@ -39,6 +39,13 @@ export default function Hero() {
         .hero__subtitle {
           font-size: 1.25rem;
           color: var(--color-gray-100);
+        }
+
+        @media screen and (min-width: 60em) {
+          .hero {
+            padding-top: 7.5rem;
+            padding-bottom: 7.5rem;
+          }
         }
       `}</style>
     </>

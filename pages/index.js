@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Script from 'next/script'
 
 import Plan from '../components/plan'
+import Tooltip from '../components/tooltip'
 import Wallet from '../components/wallet-connection'
 import Layout from '../components/layout'
 import Gas from '../components/gas'
@@ -224,7 +225,43 @@ export default function Home() {
 					<div className="mint">
 						<h2>Ready to mint?</h2>
 						{/* TODO: show output from gas.message api */}
-						<Button>Mint NFT - 0.001 ETH</Button>
+						<form className="mint__form" id="mintForm">
+							<div className="mint__name-wrapper">
+								<input type="text" placeholder="Name" name="name" id="name" required autocomplete="off"/>
+								<Tooltip>This name will appear on the NFT and be visible to everyone.</Tooltip>
+							</div>
+							<div className="mint__color-options">
+								<div className="mint__color-option">
+									<input type="radio" name="color" value="blue" id="blue" required />
+									<label htmlFor="blue">
+										<span className="mint__color-option-color"></span>
+										<span>Blue</span>
+									</label>
+								</div>
+								<div className="mint__color-option">
+									<input type="radio" name="color" value="red" id="red" required />
+									<label htmlFor="red">
+										<span className="mint__color-option-color"></span>
+										<span>Red</span>
+									</label>
+								</div>
+								<div className="mint__color-option">
+									<input type="radio" name="color" value="light" id="light" required />
+									<label htmlFor="light">
+										<span className="mint__color-option-color"></span>
+										<span>Light</span>
+									</label>
+								</div>
+								<div className="mint__color-option">
+									<input type="radio" name="color" value="dark" id="dark" required />
+									<label htmlFor="dark">
+										<span className="mint__color-option-color"></span>
+										<span>Dark</span>
+									</label>
+								</div>
+							</div>
+							<Button extraClass="center" type="submit">Mint for 0.002 ETH</Button>
+						</form>
 					</div>
 				</Section>
 
@@ -268,6 +305,91 @@ export default function Home() {
 						flex-direction: column;
 						align-items: center;
 						padding-bottom: 1rem;
+					}
+
+					.mint__form {
+						margin-top: 1rem;
+						max-width: 100%;
+						width: 20rem;
+					}
+
+					.mint__name-wrapper {
+						position: relative;
+						margin-bottom: 1.25rem;
+					}
+					
+					.mint__form input[type="text"] {
+						border: none;
+						background: var(--color-highlight);
+						color: var(--color-light);
+						padding: 0.75rem;
+						padding-right: 2.25rem;
+						width: 100%;
+						border-radius: 0.5rem;
+						box-shadow: .125rem .125rem 6rem #000000;
+					}
+
+					.mint__form input[type="text"]:focus {
+						outline: 2px solid var(--color-gray-400);
+					}
+
+					.mint__color-options {
+						display: flex;
+						justify-content: space-around;
+						margin-bottom: 2rem;
+					}
+
+					.mint__color-option {
+						position: relative;
+						display: flex;
+						gap: 0.5rem;
+					}
+
+					.mint__color-option > label {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						gap: 0.5rem;
+					}
+
+					.mint__color-option > label > .mint__color-option-color {
+						display: block;
+						background: var(--color-gray-200);
+						width: 2rem;
+						height: 2rem;
+						border-radius: 50%;
+					}
+
+					.mint__color-option > input {
+						visibility: hidden;
+						opacity: 0;
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+					
+					.mint__color-option > input:checked + label > .mint__color-option-color {
+						outline: 3px solid var(--color-gray-100);
+					}
+
+					.mint__color-option > input:checked + label {
+						color: var(--color-gray-100);
+					}
+
+					label[for="blue"] .mint__color-option-color {
+						background: linear-gradient(135deg, #2E80DF, #7CB8FF) !important;
+					}
+
+					label[for="red"] .mint__color-option-color {
+						background: linear-gradient(135deg, #E46060, #FFB1B1) !important;
+					}
+
+					label[for="light"] .mint__color-option-color {
+						background: linear-gradient(135deg, #FCFCFC, #b5dcff) !important;
+					}
+
+					label[for="dark"] .mint__color-option-color {
+						background: linear-gradient(135deg, #000000, #606060) !important;
 					}
 
 					@media screen and (min-width: 60em) {
