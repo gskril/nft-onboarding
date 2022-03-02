@@ -227,7 +227,7 @@ export default function Home() {
 						{/* TODO: show output from gas.message api */}
 						<form className="mint__form" id="mintForm">
 							<div className="mint__name-wrapper">
-								<input type="text" placeholder="Name" name="name" id="name" required autocomplete="off"/>
+								<input type="text" placeholder="Name" name="name" id="name" required autoComplete="off"/>
 								<Tooltip>This name will appear on the NFT and be visible to everyone.</Tooltip>
 							</div>
 							<div className="mint__color-options">
