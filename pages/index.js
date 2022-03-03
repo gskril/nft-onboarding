@@ -18,8 +18,7 @@ export default function Home() {
 				<title>Home</title>
 			</Head>
 
-			<div className="connection d-none">
-			</div>
+			<div className="connection d-none"></div>
 
 			<Layout>
 				<div className="plan">
@@ -227,40 +226,87 @@ export default function Home() {
 						{/* TODO: show output from gas.message api */}
 						<form className="mint__form" id="mintForm">
 							<div className="mint__name-wrapper">
-								<input type="text" placeholder="Name" name="name" id="name" required autoComplete="off"/>
-								<Tooltip>This name will appear on the NFT and be visible to everyone.</Tooltip>
+								<input
+									type="text"
+									placeholder="Name"
+									name="name"
+									id="name"
+									required
+									autoComplete="off"
+								/>
+								<Tooltip>
+									This name will appear on the NFT and be
+									visible to everyone.
+								</Tooltip>
 							</div>
 							<div className="mint__color-options">
 								<div className="mint__color-option">
-									<input type="radio" name="color" value="blue" id="blue" required />
+									<input
+										type="radio"
+										name="color"
+										value="blue"
+										id="blue"
+										required
+									/>
 									<label htmlFor="blue">
 										<span className="mint__color-option-color"></span>
 										<span>Blue</span>
 									</label>
 								</div>
 								<div className="mint__color-option">
-									<input type="radio" name="color" value="red" id="red" required />
+									<input
+										type="radio"
+										name="color"
+										value="red"
+										id="red"
+										required
+									/>
 									<label htmlFor="red">
 										<span className="mint__color-option-color"></span>
 										<span>Red</span>
 									</label>
 								</div>
 								<div className="mint__color-option">
-									<input type="radio" name="color" value="light" id="light" required />
+									<input
+										type="radio"
+										name="color"
+										value="light"
+										id="light"
+										required
+									/>
 									<label htmlFor="light">
 										<span className="mint__color-option-color"></span>
 										<span>Light</span>
 									</label>
 								</div>
 								<div className="mint__color-option">
-									<input type="radio" name="color" value="dark" id="dark" required />
+									<input
+										type="radio"
+										name="color"
+										value="dark"
+										id="dark"
+										required
+									/>
 									<label htmlFor="dark">
 										<span className="mint__color-option-color"></span>
 										<span>Dark</span>
 									</label>
 								</div>
 							</div>
-							<Button extraClass="center" type="submit">Mint for 0.002 ETH</Button>
+							<Button extraClass="center" type="submit">
+								Mint for 0.002 ETH
+							</Button>
+							<p className="mint__success d-none">
+								Your NFT will appear on{' '}
+								<a
+									href="https://testnets.opensea.io/collection/on-chain-nft-bxo11wsmiu"
+									target="_blank"
+									rel="noreferrer"
+								>
+									OpenSea
+								</a>{' '}
+								shortly.
+							</p>
 						</form>
 					</div>
 				</Section>
@@ -317,8 +363,8 @@ export default function Home() {
 						position: relative;
 						margin-bottom: 1.25rem;
 					}
-					
-					.mint__form input[type="text"] {
+
+					.mint__form input[type='text'] {
 						border: none;
 						background: var(--color-highlight);
 						color: var(--color-light);
@@ -326,10 +372,10 @@ export default function Home() {
 						padding-right: 2.25rem;
 						width: 100%;
 						border-radius: 0.5rem;
-						box-shadow: .125rem .125rem 6rem #000000;
+						box-shadow: 0.125rem 0.125rem 6rem #000000;
 					}
 
-					.mint__form input[type="text"]:focus {
+					.mint__form input[type='text']:focus {
 						outline: 2px solid var(--color-gray-400);
 					}
 
@@ -367,8 +413,11 @@ export default function Home() {
 						top: 0;
 						left: 0;
 					}
-					
-					.mint__color-option > input:checked + label > .mint__color-option-color {
+
+					.mint__color-option
+						> input:checked
+						+ label
+						> .mint__color-option-color {
 						outline: 3px solid var(--color-gray-100);
 					}
 
@@ -376,20 +425,42 @@ export default function Home() {
 						color: var(--color-gray-100);
 					}
 
-					label[for="blue"] .mint__color-option-color {
-						background: linear-gradient(135deg, #2E80DF, #7CB8FF) !important;
+					label[for='blue'] .mint__color-option-color {
+						background: linear-gradient(
+							135deg,
+							#2e80df,
+							#7cb8ff
+						) !important;
 					}
 
-					label[for="red"] .mint__color-option-color {
-						background: linear-gradient(135deg, #E46060, #FFB1B1) !important;
+					label[for='red'] .mint__color-option-color {
+						background: linear-gradient(
+							135deg,
+							#e46060,
+							#ffb1b1
+						) !important;
 					}
 
-					label[for="light"] .mint__color-option-color {
-						background: linear-gradient(135deg, #FCFCFC, #b5dcff) !important;
+					label[for='light'] .mint__color-option-color {
+						background: linear-gradient(
+							135deg,
+							#fcfcfc,
+							#b5dcff
+						) !important;
 					}
 
-					label[for="dark"] .mint__color-option-color {
-						background: linear-gradient(135deg, #000000, #606060) !important;
+					label[for='dark'] .mint__color-option-color {
+						background: linear-gradient(
+							135deg,
+							#000000,
+							#606060
+						) !important;
+					}
+
+					.mint__success {
+						text-align: center;
+						margin-top: 1rem;
+						font-size: 1.05rem;
 					}
 
 					@media screen and (min-width: 60em) {

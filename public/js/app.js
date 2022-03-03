@@ -77,10 +77,26 @@ async function mintNft(e) {
     return alert('Error reading price from contract')
   }
 
+  function changeMintBtnState() {
+    const mintBtn = document.querySelector('.mint__form button')
+
+    if (mintBtn.disabled) {
+      mintBtn.innerHTML = "Mint for 0.002 ETH"
+      mintBtn.disabled = false
+    } else {
+      mintBtn.innerHTML = "Minting..."
+      mintBtn.disabled = true
+    }
+  }
+
   // Call mint function from contract
   await contractWithSigner.mint(minterName, mintColor, {
     value: pricePerNft
   })
+    .then(changeMintBtnState())
+    .then(() => {
+      document.querySelector('.mint__success').classList.remove('d-none')
+    })
     .catch(err => {
       if (err.message.includes('Each address may only mint one')) {
         alert('Each address may only mint one NFT.')
@@ -89,6 +105,7 @@ async function mintNft(e) {
       } else {
         alert(err.message)
       }
+      changeMintBtnState()
       console.error(err.message)
     })
 }
