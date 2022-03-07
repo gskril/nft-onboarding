@@ -33,43 +33,6 @@ library BokkyPooBahsDateTimeLibrary {
     uint constant SECONDS_PER_MINUTE = 60;
     int constant OFFSET19700101 = 2440588;
 
-    uint constant DOW_MON = 1;
-    uint constant DOW_TUE = 2;
-    uint constant DOW_WED = 3;
-    uint constant DOW_THU = 4;
-    uint constant DOW_FRI = 5;
-    uint constant DOW_SAT = 6;
-    uint constant DOW_SUN = 7;
-
-    // ------------------------------------------------------------------------
-    // Calculate the number of days from 1970/01/01 to year/month/day using
-    // the date conversion algorithm from
-    //   http://aa.usno.navy.mil/faq/docs/JD_Formula.php
-    // and subtracting the offset 2440588 so that 1970/01/01 is day 0
-    //
-    // days = day
-    //      - 32075
-    //      + 1461 * (year + 4800 + (month - 14) / 12) / 4
-    //      + 367 * (month - 2 - (month - 14) / 12 * 12) / 12
-    //      - 3 * ((year + 4900 + (month - 14) / 12) / 100) / 4
-    //      - offset
-    // ------------------------------------------------------------------------
-    function _daysFromDate(uint year, uint month, uint day) internal pure returns (uint _days) {
-        require(year >= 1970);
-        int _year = int(year);
-        int _month = int(month);
-        int _day = int(day);
-
-        int __days = _day
-          - 32075
-          + 1461 * (_year + 4800 + (_month - 14) / 12) / 4
-          + 367 * (_month - 2 - (_month - 14) / 12 * 12) / 12
-          - 3 * ((_year + 4900 + (_month - 14) / 12) / 100) / 4
-          - OFFSET19700101;
-
-        _days = uint(__days);
-    }
-
     // ------------------------------------------------------------------------
     // Calculate year/month/day from the number of days since 1970/01/01 using
     // the date conversion algorithm from
@@ -106,15 +69,10 @@ library BokkyPooBahsDateTimeLibrary {
         day = uint(_day);
     }
 
-    // 1 = Monday, 7 = Sunday
-    function getDayOfWeek(uint timestamp) internal pure returns (uint dayOfWeek) {
-        uint _days = timestamp / SECONDS_PER_DAY;
-        dayOfWeek = (_days + 3) % 7 + 1;
-    }
-
     function getYear(uint timestamp) internal pure returns (uint year) {
         (year,,) = _daysToDate(timestamp / SECONDS_PER_DAY);
     }
+
     function getMonth(uint timestamp) internal pure returns (uint month) {
         (,month,) = _daysToDate(timestamp / SECONDS_PER_DAY);
     }
@@ -153,14 +111,17 @@ library BokkyPooBahsDateTimeLibrary {
     function getDay(uint timestamp) internal pure returns (uint day) {
         (,,day) = _daysToDate(timestamp / SECONDS_PER_DAY);
     }
+
     function getHour(uint timestamp) internal pure returns (uint hour) {
         uint secs = timestamp % SECONDS_PER_DAY;
         hour = secs / SECONDS_PER_HOUR;
     }
+
     function getMinute(uint timestamp) internal pure returns (uint minute) {
         uint secs = timestamp % SECONDS_PER_HOUR;
         minute = secs / SECONDS_PER_MINUTE;
     }
+    
     function getSecond(uint timestamp) internal pure returns (uint second) {
         second = timestamp % SECONDS_PER_MINUTE;
     }
