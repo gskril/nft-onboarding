@@ -26,6 +26,8 @@ pragma solidity >=0.6.0 <0.9.0;
 // Enjoy. (c) BokkyPooBah / Bok Consulting Pty Ltd 2018-2019. The MIT Licence.
 // ----------------------------------------------------------------------------
 
+import "@openzeppelin/contracts/utils/Strings.sol";
+
 library BokkyPooBahsDateTimeLibrary {
 
     uint constant SECONDS_PER_DAY = 24 * 60 * 60;
@@ -112,17 +114,48 @@ library BokkyPooBahsDateTimeLibrary {
         (,,day) = _daysToDate(timestamp / SECONDS_PER_DAY);
     }
 
-    function getHour(uint timestamp) internal pure returns (uint hour) {
+    function getHour(uint timestamp) internal pure returns (string memory) {
         uint secs = timestamp % SECONDS_PER_DAY;
-        hour = secs / SECONDS_PER_HOUR;
+        uint hour = secs / SECONDS_PER_HOUR;
+
+        if (hour < 10) {
+            return string(abi.encodePacked("0", Strings.toString(hour)));
+        } else {
+            return string(Strings.toString(hour));
+        }
     }
 
-    function getMinute(uint timestamp) internal pure returns (uint minute) {
+    function getMinute(uint timestamp) internal pure returns (string memory) {
         uint secs = timestamp % SECONDS_PER_HOUR;
-        minute = secs / SECONDS_PER_MINUTE;
+        uint minute = secs / SECONDS_PER_MINUTE;
+
+        if (minute < 10) {
+            return string(abi.encodePacked("0", Strings.toString(minute)));
+        } else {
+            return string(Strings.toString(minute));
+        }
     }
     
-    function getSecond(uint timestamp) internal pure returns (uint second) {
-        second = timestamp % SECONDS_PER_MINUTE;
+    function getSecond(uint timestamp) internal pure returns (string memory) {
+        uint second = timestamp % SECONDS_PER_MINUTE;
+
+        if (second < 10) {
+            return string(abi.encodePacked("0", Strings.toString(second)));
+        } else {
+            return string(Strings.toString(second));
+        }
+    }
+
+    function getDateTime(uint timestamp) public pure returns (string memory) {
+        return string(
+            abi.encodePacked(
+                getMonthStr(timestamp), " ",
+                Strings.toString(getDay(timestamp)), ", ",
+                Strings.toString(getYear(timestamp)), "  \xE2\x80\xA2  ",
+                getHour(timestamp), ":",
+                getMinute(timestamp), ":",
+                getSecond(timestamp), " GMT"
+            )
+        );
     }
 }
