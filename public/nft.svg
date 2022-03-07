@@ -35,12 +35,12 @@
     <!-- Blue gradients -->
     <linearGradient id="background_gradient_blue" x1="0" y1="0" x2="1200" y2="1200" gradientUnits="userSpaceOnUse">
       <stop stop-color="#2E80DF"/>
-      <stop offset="1" stop-color="#7CB8FF"/>
+      <stop offset="1" stop-color="#82bbff"/>
     </linearGradient>
     
     <linearGradient id="pfp_gradient_blue" x1="175" y1="451" x2="267" y2="543" gradientUnits="userSpaceOnUse">
       <stop stop-color="#2E80DF"/>
-      <stop offset="1" stop-color="#7CB8FF"/>
+      <stop offset="1" stop-color="#82bbff"/>
     </linearGradient>
 
     <!-- Purple gradients -->
