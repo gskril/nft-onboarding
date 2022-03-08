@@ -7,34 +7,38 @@ connectBtn.addEventListener('click', connectWallet)
 mintForm.addEventListener('submit', (e) => mintNft(e))
 
 async function connectWallet() {
-  // Connect to Metamask
-  await ethereum.request({ method: 'eth_requestAccounts' })
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
-  const signer = provider.getSigner()
-
-  // Get wallet address, balance, and chain.
-  const myAddress = await signer.getAddress()
+  try {
+    // Connect to Metamask
+    await ethereum.request({ method: 'eth_requestAccounts' })
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const signer = provider.getSigner()
   
-  if (!connectMedia.classList.contains('connected')) {
-    // Create ENS avatar element
-    const walletAvatar = document.createElement('img')
-    walletAvatar.classList.add('connection__avatar')
-    walletAvatar.src = `https://ethleaderboard.xyz/img/av-default.png`
-    walletAvatar.width = '38px'
-    walletAvatar.height = '38px'
-    walletConnection.appendChild(walletAvatar)
+    // Get wallet address, balance, and chain.
+    const myAddress = await signer.getAddress()
+    
+    if (!connectMedia.classList.contains('connected')) {
+      // Create ENS avatar element
+      const walletAvatar = document.createElement('img')
+      walletAvatar.classList.add('connection__avatar')
+      walletAvatar.src = `https://ethleaderboard.xyz/img/av-default.png`
+      walletAvatar.width = '38px'
+      walletAvatar.height = '38px'
+      walletConnection.appendChild(walletAvatar)
+    
+      // Create wallet address element
+      const walletAddress = document.createElement('span')
+      walletAddress.innerText = `${myAddress.slice(0, 5)}...${myAddress.slice(-4)}`
+      walletConnection.appendChild(walletAddress)
+      walletConnection.classList.remove('d-none')
   
-    // Create wallet address element
-    const walletAddress = document.createElement('span')
-    walletAddress.innerText = `${myAddress.slice(0, 5)}...${myAddress.slice(-4)}`
-    walletConnection.appendChild(walletAddress)
-    walletConnection.classList.remove('d-none')
-
-    // Add connected message below button if not already there
-    const connectedNote = document.createElement('p')
-    connectedNote.innerHTML = `You are connected.`
-    connectMedia.appendChild(connectedNote)
-    connectMedia.classList.add('connected')
+      // Add connected message below button if not already there
+      const connectedNote = document.createElement('p')
+      connectedNote.innerHTML = `You are connected.`
+      connectMedia.appendChild(connectedNote)
+      connectMedia.classList.add('connected')
+    }
+  } catch(err) {
+    alert('You\'ll need MetaMask to use this app.')
   }
 }
 
