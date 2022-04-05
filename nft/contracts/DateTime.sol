@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.0 <0.9.0;
+pragma solidity ^0.8.7;
 
 // ----------------------------------------------------------------------------
 // BokkyPooBah's DateTime Library v1.01
@@ -24,11 +24,12 @@ pragma solidity >=0.6.0 <0.9.0;
 //
 //
 // Enjoy. (c) BokkyPooBah / Bok Consulting Pty Ltd 2018-2019. The MIT Licence.
+// Modified in 2022 to return a formatted datetime string
 // ----------------------------------------------------------------------------
 
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-library BokkyPooBahsDateTimeLibrary {
+library DateTime {
 
     uint constant SECONDS_PER_DAY = 24 * 60 * 60;
     uint constant SECONDS_PER_HOUR = 60 * 60;

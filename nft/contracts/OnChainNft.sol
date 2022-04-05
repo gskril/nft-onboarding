@@ -2,18 +2,22 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "./ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./BokkyPooBahsDateTimeLibrary.sol";
+import "./DateTime.sol";
 import "./AddressToString.sol";
 import "./Base64.sol";
 
 contract OnChainNft is ERC721Enumerable, Ownable {
   using Strings for uint256;
 
-  uint256 public cost = 0.05 ether;
+  uint256 public cost;
 
-  constructor() ERC721("On Chain NFT", "OCN") {}
+  constructor(
+    uint256 _cost
+  ) ERC721("On Chain NFT", "OCN") {
+    cost = _cost;
+  }
 
   struct metadata {
     string description;
@@ -44,7 +48,7 @@ contract OnChainNft is ERC721Enumerable, Ownable {
       // TODO: slice string to 0x000...0000
       string(abi.encodePacked("0x", AddressToString.decode(msg.sender))),
       block.timestamp,
-      BokkyPooBahsDateTimeLibrary.getDateTime(block.timestamp),
+      DateTime.getDateTime(block.timestamp),
       _color
     );
 
